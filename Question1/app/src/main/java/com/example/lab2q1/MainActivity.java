@@ -5,6 +5,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,9 +45,10 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            Toast.makeText(this,
-                    "Thank you " + n + ", your request is being processed",
-                    Toast.LENGTH_LONG).show();
+            Intent i = new Intent(MainActivity.this, ThankYou.class);
+            i.putExtra("personName", n);
+            startActivity(i);
+
         });
     }
 }
