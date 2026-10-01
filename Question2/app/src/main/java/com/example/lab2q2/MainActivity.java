@@ -60,6 +60,26 @@ public class MainActivity extends AppCompatActivity {
                     "Hello " + n + ",\n\nYour validation code is: " + validationCode
             );
 
+            if (emailIntent.resolveActivity(getPackageManager()) != null) {
+
+                startActivity(emailIntent);
+
+            } else {
+
+                Toast.makeText(
+                        MainActivity.this,
+                        "No email application found",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+
+            Intent validationIntent =
+                    new Intent(MainActivity.this, Validation.class);
+
+            validationIntent.putExtra("NAME", n);
+            validationIntent.putExtra("VALIDATION_CODE", validationCode);
+
+            startActivity(validationIntent);
         });
     }
 }
