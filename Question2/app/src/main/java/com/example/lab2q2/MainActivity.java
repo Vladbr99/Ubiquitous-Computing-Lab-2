@@ -24,9 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         submit.setOnClickListener(v -> {
 
-            Random random = new Random();
-            int validationCode = 100000 + random.nextInt(900000);
-
             String n = name.getText().toString().trim();
             String p = password.getText().toString().trim();
             String ph = phone.getText().toString().trim();
@@ -50,11 +47,18 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            Toast.makeText(
-                    MainActivity.this,
-                    "Validation code: " + validationCode,
-                    Toast.LENGTH_LONG
-            ).show();
+            Random random = new Random();
+            int validationCode = 100000 + random.nextInt(900000);
+
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+            emailIntent.setData(Uri.parse("mailto:"));
+
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{em});
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Account Validation");
+            emailIntent.putExtra(
+                    Intent.EXTRA_TEXT,
+                    "Hello " + n + ",\n\nYour validation code is: " + validationCode
+            );
 
         });
     }
