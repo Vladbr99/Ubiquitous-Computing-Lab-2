@@ -7,6 +7,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import java.util.Random;
+import android.content.Intent;
+import android.net.Uri;
 
 public class MainActivity extends AppCompatActivity {
 
