@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class Validation extends AppCompatActivity {
 
@@ -20,5 +23,16 @@ public class Validation extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        String name = getIntent().getStringExtra("NAME");
+
+        int validationCode =
+                getIntent().getIntExtra("VALIDATION_CODE", -1);
+
+        EditText code = findViewById(R.id.editCode);
+        Button validate = findViewById(R.id.buttonValidate);
+        TextView result = findViewById(R.id.textResult);
+
+        
     }
 }
