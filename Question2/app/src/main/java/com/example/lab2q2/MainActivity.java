@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         Button submit = findViewById(R.id.buttonSubmit);
 
         submit.setOnClickListener(v -> {
+
+            Random random = new Random();
+            int validationCode = 100000 + random.nextInt(900000);
 
             String n = name.getText().toString().trim();
             String p = password.getText().toString().trim();
@@ -44,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
                 email.setError("Invalid email");
                 return;
             }
+
+            Toast.makeText(
+                    MainActivity.this,
+                    "Validation code: " + validationCode,
+                    Toast.LENGTH_LONG
+            ).show();
 
         });
     }
