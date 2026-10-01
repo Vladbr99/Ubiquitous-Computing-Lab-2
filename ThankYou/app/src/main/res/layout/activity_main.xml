@@ -8,11 +8,11 @@
     tools:context=".ThankYou">
 
     <LinearLayout
-        android:layout_width="391dp"
-        android:layout_height="849dp"
+        android:layout_width="441dp"
+        android:layout_height="854dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteX="-12dp"
+        tools:layout_editor_absoluteY="-1dp">
 
         <TextView
             android:id="@+id/ThankYouLabel"
