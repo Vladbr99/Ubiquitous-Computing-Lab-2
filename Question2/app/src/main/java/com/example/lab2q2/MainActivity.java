@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             Random random = new Random();
-            int validationCode = 100000 + random.nextInt(900000);
+            int validationCode = 1000 + random.nextInt(9000);
 
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
             emailIntent.setData(Uri.parse("mailto:"));
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(
                         MainActivity.this,
-                        "No email application found",
-                        Toast.LENGTH_SHORT
+                        "Validation code: " + validationCode,
+                        Toast.LENGTH_LONG
                 ).show();
             }
 

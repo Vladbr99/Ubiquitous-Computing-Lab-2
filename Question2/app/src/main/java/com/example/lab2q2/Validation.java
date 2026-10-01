@@ -33,6 +33,24 @@ public class Validation extends AppCompatActivity {
         Button validate = findViewById(R.id.buttonValidate);
         TextView result = findViewById(R.id.textResult);
 
-        
+        validate.setOnClickListener(v -> {
+
+            String enteredCode = code.getText().toString().trim();
+
+            if (enteredCode.isEmpty()) {
+                code.setError("Enter validation code");
+                return;
+            }
+
+            int userCode = Integer.parseInt(enteredCode);
+
+            if (userCode == validationCode) {
+                result.setText(
+                        "Thank you " + name + ", your request is being processed"
+                );
+            } else {
+                code.setError("Incorrect validation code");
+            }
+        });
     }
 }
