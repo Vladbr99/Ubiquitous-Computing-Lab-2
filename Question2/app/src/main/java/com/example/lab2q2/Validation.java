@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Validation extends AppCompatActivity {
 
@@ -31,7 +32,6 @@ public class Validation extends AppCompatActivity {
 
         EditText code = findViewById(R.id.editCode);
         Button validate = findViewById(R.id.buttonValidate);
-        TextView result = findViewById(R.id.textResult);
 
         validate.setOnClickListener(v -> {
 
@@ -45,9 +45,11 @@ public class Validation extends AppCompatActivity {
             int userCode = Integer.parseInt(enteredCode);
 
             if (userCode == validationCode) {
-                result.setText(
-                        "Thank you " + name + ", your request is being processed"
-                );
+                Toast.makeText(
+                        Validation.this,
+                        "Thank you "  + name + ", your request is being processed",
+                        Toast.LENGTH_SHORT
+                ).show();
             } else {
                 code.setError("Incorrect validation code");
             }
